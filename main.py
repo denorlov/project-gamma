@@ -73,24 +73,22 @@ def main(image_path):
     gray_img = convert_to_grayscale(img)
 
     M = np.array(gray_img)
-
     print("gray scale:")
+    print(M.dtype)
     for row in M:
         print(row)
 
     N, max_value = normalize_matrix(M)
+    print(f"max_value: {max_value}")
 
     print("normalised gray scale:")
+    print(N.dtype)
     for row in N:
         print(row)
 
-    print(f"max_value: {max_value}")
-
     max_sum, top_left, bottom_right = maximumSumRectangle(*N.shape, N)
 
-    # Вычисляем центр и радиус окружности
     print(max_sum, top_left, bottom_right)
-
     draw_rect_on_image(img, top_left, bottom_right)
 
     plt.imshow(img)
