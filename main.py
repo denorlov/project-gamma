@@ -17,7 +17,7 @@ def convert_to_grayscale(img):
 def normalize_matrix(M):
     # Нормализуем матрицу M
     max_value = np.max(M)
-    N = M - max_value
+    N = M - max_value + 125
     return N, max_value
 
 
@@ -72,7 +72,7 @@ def main(image_path):
     img = load_image(image_path)
     gray_img = convert_to_grayscale(img)
 
-    M = np.array(gray_img)
+    M = np.array(gray_img, dtype="i")
     print("gray scale:")
     print(M.dtype)
     for row in M:
