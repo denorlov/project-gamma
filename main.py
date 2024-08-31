@@ -72,7 +72,7 @@ def main(image_path):
     img = load_image(image_path)
     gray_img = convert_to_grayscale(img)
 
-    M = np.array(gray_img, dtype="i")
+    M = np.array(gray_img)
     print("gray scale:")
     print(M.dtype)
     for row in M:
